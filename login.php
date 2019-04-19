@@ -7,8 +7,9 @@ if (isset($_SESSION['role'])) {
 ?><html>
 
 <head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
   <style>
     body {
       display: flex;
@@ -24,14 +25,6 @@ if (isset($_SESSION['role'])) {
       background: #fff;
     }
 
-    .error {
-      text-weight: bold;
-      color: red;
-    }
-    .success {
-      text-weight: bold;
-      color: green;
-    }
     .input-field input[type=date]:focus+label,
     .input-field input[type=text]:focus+label,
     .input-field input[type=email]:focus+label,
@@ -53,17 +46,17 @@ if (isset($_SESSION['role'])) {
   <div class="section"></div>
   <main>
     <center>
-      <div><?php if (isset($_GET['error'])) {
-              echo '<p class="error">' . $_GET['error'] . '</p>';
+      <div class="container">
+        <h5 class="h2 indigo-text">Login</h5>
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <?php if (isset($_GET['error'])) {
+              echo '<div class="alert alert-danger" role="alert">' . $_GET['error'] . '</div>';
       }
               if (isset($_GET['success'])) {
-                echo '<p class="success">' . $_GET['success'] . '</p>';
+                echo '<div class="alert alert-success" role="alert">' . $_GET['success'] . '</div>';
             }
 
-            ?></div>
-      <div class="container">
-        <h5 class="indigo-text">Login</h5>
-        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+            ?>
           <form class="col s12" method="POST" action="includes/authorize.inc.php">
             <div class='row'>
               <div class='col s12'></div>
