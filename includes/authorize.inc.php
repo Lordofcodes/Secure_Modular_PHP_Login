@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (validate($email, $password)) {
+    if (validate_login($email, $password)) {
         $conn = DB::getInstance()->getDB();
         $stmt = $conn->prepare('SELECT * FROM users WHERE email = :email');
         $stmt->bindParam(':email', $email);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("Location: ../admin_dashboard.php?username=" . $row['username']);
                 } else if ($row['role'] == 'user') {
                     $_SESSION['role'] = $row['role'];
-                    header("Location: ../user_dashboard.php?username=" . $row['username']);
+                    header("Location: ../user_dashboard.php?username=" . $row['username']."&email=".$row['email']);
                 }
             }
         } else {

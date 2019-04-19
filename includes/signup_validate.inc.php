@@ -1,5 +1,5 @@
 <?php
-function validate($username,$email,$password){
+function validate_signup($username,$email,$password){
 
     if(!isset($username) || trim($username) == ''){
         header("Location: ../signup.php?email=".$email."&error=Username required!");

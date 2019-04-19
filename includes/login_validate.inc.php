@@ -1,5 +1,5 @@
 <?php
-function validate($email,$password){
+function validate_login($email,$password){
 
     if(!isset($email) || trim($email) == ''){
         header("Location: ../login.php?error=Email required!");

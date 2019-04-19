@@ -28,7 +28,7 @@ $stmt->execute();
     <form action="login.php" method='POST'>
         <button type='submi' name='logout'> Logout</button>
     </form>
-    <a href="_createuser.php" target="_blank">Create User</a>
+    <a href="add_student.php" target="_blank">Add Student</a>
     <h2>User Summary</h2>
     <table>
         <tr>
@@ -42,9 +42,9 @@ $stmt->execute();
             echo '<td>' . $row['id'] . '</td>';
             echo '<td>' . $row['username'] . '</td>';
             echo '<td>' . $row['email'] . '</td>';
-            echo "<td> <form action='_createuser.php' method='POST'>";
+            echo "<td> <form action='add_student.php' method='POST'>";
             echo "<button type='submit' value='Edit' name='edit'>Edit</td>";
-            echo "<td> <form action='_createuser.php' method='POST'>";
+            echo "<td> <form action='add_student.php' method='POST'>";
             echo "<button type='submit' value='delete' name='delete'>Delete</td>";
             echo '</tr>';
         }
